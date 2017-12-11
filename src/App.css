@@ -1,0 +1,154 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.holder {
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.body {
+  margin-left: 100px;
+}
+.selected {
+  color: red;
+}
+.unselected {
+  color: blue;
+}
+
+.chargeHolder {
+  display: flex;
+  flex-direction: row;
+  background-color: lightcyan;
+}
+
+.item_center {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.item_left {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  text-align: left;
+  margin-left: 60px;
+}
+
+.griditem {
+  grid-template-columns: 100px 50px 100px 100px;
+  grid-column-gap: 10px;
+}
+
+.button {
+  background-color: #008cba;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 7px 12px;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #008cba;
+}
+
+input[type="number"],
+select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="month"],
+select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #008cba;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 7px 12px;
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #008cba;
+}
+
+.subtitle {
+  font-size: 12px;
+}
+
+.succeeded {
+  font-size: 14px;
+  color: blue;
+  font-weight: bold;
+}
+
+.failed {
+  font-size: 12px;
+  color: red;
+}
