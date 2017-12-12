@@ -4,7 +4,7 @@ export default class Checkout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latestCharge: "None"
+      latestCharge: "..."
     };
     this.createCharge = this.createCharge.bind(this);
   }
@@ -20,34 +20,41 @@ export default class Checkout extends Component {
         latestCharge: "Creating token..."
       },
       () => {
-        try {
-          this.props
-            .postPublic("tokens", {
-              "card[number]": cardNum,
-              "card[exp_month]": month_year.split("-")[1],
-              "card[exp_year]": month_year.split("-")[0]
-            })
-            .then(token => {
+        this.props
+          .postPublic("tokens", {
+            "card[number]": cardNum,
+            "card[exp_month]": month_year.split("-")[1],
+            "card[exp_year]": month_year.split("-")[0]
+          })
+          .then(response => {
+            if (response.error) {
+              alert(response.error.message);
               this.setState({
-                latestCharge: "Create charges..."
+                latestCharge: "Failed"
               });
+            }
+            this.setState({
+              latestCharge: "Create charges..."
+            });
 
-              return this.props.postSecret("charges", {
-                amount: amount,
-                currency: "usd",
-                description: descrpt,
-                source: token.id
+            return this.props.postSecret("charges", {
+              amount: amount,
+              currency: "usd",
+              description: descrpt,
+              source: response.id
+            });
+          })
+          .then(charge => {
+            if (charge.error) {
+              this.setState({
+                latestCharge: "failed"
               });
-            })
-            .then(charge => {
-              //alert('Status: ' + charge.status);
+            } else {
               this.setState({
                 latestCharge: charge.status
               });
-            });
-        } catch (err) {
-          alert(err.message);
-        }
+            }
+          });
       }
     );
 
@@ -70,7 +77,7 @@ export default class Checkout extends Component {
             />
           </label>
 
-          <label >
+          <label>
             Exp Month:
             <input
               type="month"
@@ -79,8 +86,7 @@ export default class Checkout extends Component {
             />
           </label>
 
-
-          <label style={{marginTop: 10}}>
+          <label style={{ marginTop: 10 }}>
             Amount:
             <input
               type="number"
@@ -89,7 +95,7 @@ export default class Checkout extends Component {
             />
           </label>
 
-          <label style={{marginTop: 5}}>
+          <label style={{ marginTop: 5 }}>
             Description:
             <input
               type="text"
@@ -104,7 +110,9 @@ export default class Checkout extends Component {
         <br />
         <p
           className={`${
-            this.state.latestCharge === "succeeded" ? "succeeded" : "failed"
+            this.state.latestCharge === "succeeded"
+              ? "succeeded"
+              : (this.state.latestCharge === "failed" ? "failed" : "normal")
           }`}
         >
           Status: {this.state.latestCharge}

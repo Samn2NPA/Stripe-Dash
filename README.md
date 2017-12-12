@@ -11,7 +11,7 @@ The following **required** functionality is completed:
 - [x] User has two tabs, one for Checkout, and one for Charges.
 - [x] User can see the currently active tab.
 - [x] User can create a charge for a desired amount on the Checkout tab.
-- [ ] User sees an error message when there is a card processing error. (sr, I couldnt know where to get this!)
+- [x] User sees an error message when there is a card processing error. (sr, I couldnt know where to get this!)
 - [x] User can see past charges on the Charges tab.
 
 The following **optional** features are implemented:
@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/kmIhSDN.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/jhg1r4F.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

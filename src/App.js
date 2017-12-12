@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import { TabList, Tab } from "./Tabs";
 import Checkout from "./Checkout.js";
 import Charges from "./Charges.js";
-import {withStripe} from './StripeApi.js';
+import {withStripe, } from './StripeApi.js';
 
 class App extends Component {
   constructor(props) {
